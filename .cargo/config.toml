@@ -1,4 +1,5 @@
 [target.x86_64-pc-windows-msvc]
 rustflags = [
-    "-Clink-args=../../../icon/resources.res",
+    "-L./icon",
+    "-Clink-args=resources.res",
 ]
