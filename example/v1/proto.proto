@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package example.v1;
+
+option go_package = "github.com/example/example/example/v1/example";
+
+import "google/api/annotations.proto";
+
+service ExampleService {
+	rpc Do(DoRequest) returns (DoResponse) {
+		option (google.api.http) = {
+			post: "/example",
+			body: "*"
+		};
+	};
+}
+
+message DoRequest {
+}
+
+message DoResponse {
+	What what = 1;
+}
+
+message What {
+	EventType event_type = 1;
+}
+
+enum EventType {
+	EVENT_TYPE_UNSPECIFIED = 0;
+}
